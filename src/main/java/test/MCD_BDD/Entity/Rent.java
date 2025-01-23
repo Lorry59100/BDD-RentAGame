@@ -1,9 +1,6 @@
 package test.MCD_BDD.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,9 +20,9 @@ public class Rent {
     @ManyToOne
     private Client client;
 
-    @ManyToMany(mappedBy = "rents")
-    private List<Article> articles = new ArrayList<>();
+    @OneToMany(mappedBy = "rent")
+    private List<Article_Rent> articleRents = new ArrayList<>();
 
-    @ManyToMany
-    private List<Payment> payments = new ArrayList<>();
+    @OneToMany(mappedBy = "rent")
+    private List<Rent_Payment> rentPayments = new ArrayList<>();
 }

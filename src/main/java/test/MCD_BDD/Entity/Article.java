@@ -1,10 +1,7 @@
 package test.MCD_BDD.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,9 +23,8 @@ public class Article {
 
     private Date release;
 
-    @JsonIgnore
-    @ManyToMany
-    private List<Rent> rents = new ArrayList<>();
+    @OneToMany(mappedBy = "article")
+    private List <Article_Rent> articleRent = new ArrayList<>();
 
     @ManyToOne
     private Game game;
