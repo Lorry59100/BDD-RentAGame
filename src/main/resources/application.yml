@@ -1,3 +1,15 @@
+server:
+  port: 8080
 spring:
   application:
     name: MCD-BDD
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rentagame
+    username: postgres
+    password: password
+    driverClassName: org.postgresql.Driver
+    platform: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+      show-sql: true
